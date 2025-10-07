@@ -58,6 +58,14 @@ body{
     scroll-padding-top: calc(var(--navHeight) + 30);
 }
 
+@font-face {
+    font-family: 'bootstrap-icons';
+    src: url('../icons/fonts/bootstrap-iconse52a.woff') format('woff'),
+         url('../icons/fonts/bootstrap-iconse52a.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 img{
     width: 100%; height: 100%;
     -o-object-fit: cover;

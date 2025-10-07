@@ -36,41 +36,43 @@
     <main>
         <!-- SUB HERO BANNER START -->
         <section class="sub-hero-banner" style="background-image: url('{% static 'art/overlay.webp' %}');">
-            <div class="hero-contained">
+            <div class="hero-contained ta-center">
                 <div class="hero-title fc-white">
-                    <h1 class="ff-damion">Roundazzle | Blogs</h1>
-                    <a href="" class="fc-white">Home</a>
-                    <i class="bi bi-chevron-right"></i>
-                    <a href="#" class="fc-white">Blogs</a>
+                    <h1 class="ff-damion fs-h1" style="margin-bottom: 10px;">GALERIE</h1>
+                    <div class="breadcrumb fc-white fs-h5">
+                        <a href="{% url 'academy:home' %}" class="fc-white">Accueil</a>
+                        <i class="bi bi-chevron-right mx-5"></i>
+                        <span>Galerie</span>
+                    </div>
                 </div>
             </div>
             <div class="hero-socials">
-                <a href="#" class="mt-a icon-link" aria-label="Follow us on facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="icon-link mt-10" aria-label="Follow us on instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="icon-link mt-10" aria-label="Follow us on twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="icon-link mt-10" aria-label="Follow us on youtube"><i class="bi bi-youtube"></i></a>
+                <a href="#" class="mt-a icon-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="icon-link mt-10" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="icon-link mt-10" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="icon-link mt-10" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
             </div>
         </section>
         <!-- SUB HERO BANNER END -->
 
         <!-- NAVIGATION START -->
         <nav>
-          <div class="contained">
-              <a href="index.html" class="logo fc-primary ff-damion row flex-alig-center">
-                  <span class="fs-h2">GALERIE</span>
-              </a>
-              <input type="checkbox" name="tablet-mobile-menu" class="tab-mob-menu" aria-label="tablet and mobile menu">
-              <div class="navigation-container">
-                  <a href="{% url 'academy:home' %}">Home</a>
-                  <a href="{% url 'academy:formation_list' %}">Formations</a>
-                  <a href="{% url 'academy:video_list' %}">Vidéos</a>
-                  <a href="{% url 'academy:gallery' %}">Galerie</a>
-                  <a href="blog/blog.html">Blog</a>
-                  <a href="career/career.html">Career</a>
-                  <a href="contact.html" class="btn-bg1 border-round">Contact Us</a>
-              </div>
-          </div>
-      </nav>
+            <div class="contained">
+                <a href="{% url 'academy:home' %}" class="logo fc-primary ff-damion row flex-alig-center">
+                    <span class="fs-h2">Galerie</span>
+                </a>
+                <input type="checkbox" name="tablet-mobile-menu" class="tab-mob-menu" aria-label="tablet and mobile menu">
+                <div class="navigation-container">
+                    <a href="{% url 'academy:home' %}">Accueil</a>
+                    <a href="{% url 'academy:formation_list' %}">Formations</a>
+                    <a href="{% url 'academy:video_list' %}">Vidéos</a>
+                    <a href="{% url 'academy:gallery' %}">Galerie</a>
+                    <a href="blog/blog.html">Blog</a>
+                    <a href="career/career.html">Carrière</a>
+                    <a href="contact.html" class="btn-bg1 border-round">Contact</a>
+                </div>
+            </div>
+        </nav>
         <a href="#" class="btn-back-to-top" aria-label="Back to top button">
             <i class="bi bi-chevron-up"></i>
         </a>
@@ -85,7 +87,7 @@
             <div class="row flex-just-center">
                 {% for img in images %}
 
-                    <div class="col-tri">
+                    <div class="col-tri" style="max-width: 350px;">
                         <article class="card-blog">
                             
                                 <img src="{{ img.image.url }}" alt="{{ img.title }}">
@@ -121,33 +123,96 @@
     
     <footer class="fc-white">
         <div class="contained row flex-just-center">
+
+            <!-- FOOTER MISSION -->
             <div class="col-quad">
-                <h3 class="ff-damion">Roundazzle</h3>
-                <p>Our mission is your vision...</p>
+                <h3 class="ff-damion">AgroAcadémie</h3>
+                <p>
+                    Nous formons la nouvelle génération d’acteurs du monde rural. Agriculture durable, élevage responsable,
+                    pisciculture moderne : notre mission est de transmettre un savoir-faire concret et accessible.
+                </p>
+                <p>
+                    Des contenus de qualité, des experts passionnés, et une plateforme faite pour faire germer vos ambitions.
+                </p>
             </div>
+
+            <!-- CONTACT RAPIDE -->
             <div class="col-quad">
-                <h3 class="ff-damion">Get in touch</h3>
-                <a href="#" class="display-block fc-white icon-link mt-10 mb-10"><i class="bi bi-envelope-fill"></i> nonexistentadd@gmail.com</a>
-                <a href="#" class="display-block fc-white icon-link mt-10 mb-10"><i class="bi bi-telephone-fill"></i> +639123456789</a>
-                <a href="#" class="display-block fc-white icon-link mt-10 mb-10"><i class="bi bi-geo-alt-fill"></i> 20th street, Dreamland</a>
+                <h3 class="ff-damion">Contact</h3>
+                <a href="mailto:contact@agroacademie.com" class="display-block fc-white icon-link mt-10 mb-10">
+                    <i class="bi bi-envelope-fill"></i>
+                    contact@agroacademie.com
+                </a>
+                <a href="tel:+22912345678" class="display-block fc-white icon-link mt-10 mb-10">
+                    <i class="bi bi-telephone-fill"></i>
+                    +229 12 34 56 78
+                </a>
+                <a href="#" class="display-block fc-white icon-link mt-10 mb-10">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Abomey-Calavi, Bénin
+                </a>
+                <div class="mt-20">
+                    <a href="#" class="display-inblock fc-white icon-link" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#" class="display-inblock fc-white icon-link" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#" class="display-inblock fc-white icon-link" aria-label="Twitter">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="#" class="display-inblock fc-white icon-link" aria-label="YouTube">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </div>
             </div>
+
+            <!-- HORAIRES -->
             <div class="col-quad">
-                <h3 class="ff-damion">Opening hours</h3>
-                <p class="mt-10 mb-10 fw-bold">Saturday: <span class="fw-normal display-block">8:00 - 8:01</span></p>
+                <h3 class="ff-damion">Heures d’ouverture</h3>
+                <p class="mt-10 mb-10 fw-bold">
+                    Lundi - Vendredi :
+                    <span class="fw-normal display-block">08h00 - 18h00</span>
+                </p>
+                <p class="mt-10 mb-10 fw-bold">
+                    Samedi :
+                    <span class="fw-normal display-block">08h00 - 13h00</span>
+                </p>
+                <p class="mt-10 mb-10 fw-bold">
+                    Dimanche :
+                    <span class="fw-normal display-block">Fermé</span>
+                </p>
             </div>
+
+            <!-- LIENS UTILES -->
             <div class="col-quad">
-                <h3 class="ff-damion">Useful Links</h3>
-                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Home</a>
-                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> About</a>
-                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Service</a>
-                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Industries</a>
-                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Blog</a>
-                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Career</a>
-                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Contact</a>
+                <h3 class="ff-damion">Liens utiles</h3>
+                <a href="{% url 'academy:home' %}" class="display-block fc-white mt-5 mb-5">
+                    <i class="bi bi-chevron-compact-right"></i> Accueil
+                </a>
+                <a href="#" class="display-block fc-white mt-5 mb-5">
+                    <i class="bi bi-chevron-compact-right"></i> À propos
+                </a>
+                <a href="{% url 'academy:formation_list' %}" class="display-block fc-white mt-5 mb-5">
+                    <i class="bi bi-chevron-compact-right"></i> Formations
+                </a>
+                <a href="{% url 'academy:gallery' %}" class="display-block fc-white mt-5 mb-5">
+                    <i class="bi bi-chevron-compact-right"></i> Galerie
+                </a>
+                <a href="{% url 'academy:video_list' %}" class="display-block fc-white mt-5 mb-5">
+                    <i class="bi bi-chevron-compact-right"></i> Vidéos
+                </a>
+                <a href="#" class="display-block fc-white mt-5 mb-5">
+                    <i class="bi bi-chevron-compact-right"></i> Blog
+                </a>
+                <a href="#" class="display-block fc-white mt-5 mb-5">
+                    <i class="bi bi-chevron-compact-right"></i> Contact
+                </a>
             </div>
+
         </div>
         <div class="copy ta-center fc-white">
-            <small>&copy; Your site - Copyright 2023</small>
+            <small>&copy; AgroAcadémie - Tous droits réservés {{ now.year }}</small>
         </div>
     </footer>
 
