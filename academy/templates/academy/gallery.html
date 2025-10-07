@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Johnny Alimoot C.">
+    <meta name="description" content="Free corporate web template by JACode - Johnny Alimoot C">
+    <meta name="keywords" content="HTML, CSS, Blue, Rounded, Modern, Nice">
+
+    <!-- OG IMAGE -->
+    <meta property="og:image" content="{% static 'art/og-card.html' %}">
+    <meta property="og:title" content="Roundazzle - Free corporate web template">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Roundazzle | Blogs</title>
+
+    <!-- CSS -->
+    <link rel="preload" href="{% static 'icons/bootstrap-icons.css' %}" as="style">
+    <link rel="preload" href="{% static 'css/fontstyle.css' %}" as="style">
+    <link rel="preload" href="{% static 'css/layout.css' %}" as="style">
+    <link rel="preload" href="{% static 'css/animation.css' %}" as="style">
+    <link rel="preload" href="{% static 'css/style.css' %}" as="style">
+
+    <link rel="stylesheet" href="{% static 'icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="icon" type="image/png" href="{% static 'art/favicon.png' %}">
+</head>
+<body>
+    <!-- FADE OUT ANIMATION WHEN LOADED -->
+    <span class="fade"></span>
+    <main>
+        <!-- SUB HERO BANNER START -->
+        <section class="sub-hero-banner" style="background-image: url('{% static 'art/overlay.webp' %}');">
+            <div class="hero-contained">
+                <div class="hero-title fc-white">
+                    <h1 class="ff-damion">Roundazzle | Blogs</h1>
+                    <a href="" class="fc-white">Home</a>
+                    <i class="bi bi-chevron-right"></i>
+                    <a href="#" class="fc-white">Blogs</a>
+                </div>
+            </div>
+            <div class="hero-socials">
+                <a href="#" class="mt-a icon-link" aria-label="Follow us on facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="icon-link mt-10" aria-label="Follow us on instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="icon-link mt-10" aria-label="Follow us on twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="icon-link mt-10" aria-label="Follow us on youtube"><i class="bi bi-youtube"></i></a>
+            </div>
+        </section>
+        <!-- SUB HERO BANNER END -->
+
+        <!-- NAVIGATION START -->
+        <nav>
+          <div class="contained">
+              <a href="index.html" class="logo fc-primary ff-damion row flex-alig-center">
+                  <span class="fs-h2">GALERIE</span>
+              </a>
+              <input type="checkbox" name="tablet-mobile-menu" class="tab-mob-menu" aria-label="tablet and mobile menu">
+              <div class="navigation-container">
+                  <a href="{% url 'academy:home' %}">Home</a>
+                  <a href="{% url 'academy:formation_list' %}">Formations</a>
+                  <a href="{% url 'academy:video_list' %}">Vidéos</a>
+                  <a href="{% url 'academy:gallery' %}">Galerie</a>
+                  <a href="blog/blog.html">Blog</a>
+                  <a href="career/career.html">Career</a>
+                  <a href="contact.html" class="btn-bg1 border-round">Contact Us</a>
+              </div>
+          </div>
+      </nav>
+        <a href="#" class="btn-back-to-top" aria-label="Back to top button">
+            <i class="bi bi-chevron-up"></i>
+        </a>
+        <!-- NAVIGATION END -->
+
+        <!-- BLOGS ENTRY START -->
+        <section class="contained">
+            <h2 class="section-title ff-damion">Galerie</h2>
+            <p class="ta-center col-wide mlmr-a">
+               
+            </p>
+            <div class="row flex-just-center">
+                {% for img in images %}
+
+                    <div class="col-tri">
+                        <article class="card-blog">
+                            
+                                <img src="{{ img.image.url }}" alt="{{ img.title }}">
+                           
+                            <div class="info">
+                                <h3 class="mt-5 mb-5 ff-damion fc-primary">{{ img.title }}</h3>
+                                <p class="ml-a mt-5"> {{ img.created_at }} </p>
+                            </div>
+                            <p class="ml-10 mt-5 mb-20">{{ img.description|truncatechars:120 }}</p>
+                            
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- BLOGS ENTRY END -->
+
+        <section class="subscribe bg-primary-foot" style="background-image: url('{% static 'art/overlay.webp' %}');">
+            <div class="contained row ta-center">
+                <div class="col-balance fc-white">
+                    <h3 class="mb-a ff-damion mt-a">Subscribe to our newsletter:</h3>
+                </div>
+                <div class="col-balance">
+                    <form action="#">
+                        <input type="email" id="subscribe-email" placeholder="Email" required>
+                        <button class="btn-bg2">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="fc-white">
+        <div class="contained row flex-just-center">
+            <div class="col-quad">
+                <h3 class="ff-damion">Roundazzle</h3>
+                <p>Our mission is your vision...</p>
+            </div>
+            <div class="col-quad">
+                <h3 class="ff-damion">Get in touch</h3>
+                <a href="#" class="display-block fc-white icon-link mt-10 mb-10"><i class="bi bi-envelope-fill"></i> nonexistentadd@gmail.com</a>
+                <a href="#" class="display-block fc-white icon-link mt-10 mb-10"><i class="bi bi-telephone-fill"></i> +639123456789</a>
+                <a href="#" class="display-block fc-white icon-link mt-10 mb-10"><i class="bi bi-geo-alt-fill"></i> 20th street, Dreamland</a>
+            </div>
+            <div class="col-quad">
+                <h3 class="ff-damion">Opening hours</h3>
+                <p class="mt-10 mb-10 fw-bold">Saturday: <span class="fw-normal display-block">8:00 - 8:01</span></p>
+            </div>
+            <div class="col-quad">
+                <h3 class="ff-damion">Useful Links</h3>
+                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Home</a>
+                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> About</a>
+                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Service</a>
+                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Industries</a>
+                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Blog</a>
+                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Career</a>
+                <a href="" class="display-block fc-white mt-5 mb-5"><i class="bi bi-chevron-compact-right"></i> Contact</a>
+            </div>
+        </div>
+        <div class="copy ta-center fc-white">
+            <small>&copy; Your site - Copyright 2023</small>
+        </div>
+    </footer>
+
+</body>
+</html>
